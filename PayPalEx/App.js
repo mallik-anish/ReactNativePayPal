@@ -17,10 +17,11 @@ export default class App extends React.Component {
 
     }
     payClick(){
-        this.setState({
+        
+        if(this.state.textPrice!="" && this.state.textPrice!="0"){
+          this.setState({
             showModal : true
         })
-        if(this.state.textPrice!="" && this.state.textPrice!="0"){
           let payPrice={
             "intent": "sale",
             "redirect_urls": {
@@ -52,7 +53,7 @@ export default class App extends React.Component {
             body: "grant_type=client_credentials",
             headers: {
               Accept: "application/json",
-              Authorization: "Basic <Your Authorization Data>",
+              Authorization: "Basic <Authorization Key>",
               "Content-Type": "application/x-www-form-urlencoded"
             },
             method: "POST"
